@@ -79,10 +79,10 @@ mediante búsqueda de los valores en una tabla.
   gráficas, sin necesidad de *literatura*).
   
   Tremolo:
-  7 <img src="Pics/Pic7.PNG" witdth="500" align="center">
+  <img src="Pics/Pic7.JPG" witdth="500" align="center">
   
   Vibrato:
-  8 <img src="Pics/Pic8.PNG" witdth="500" align="center">
+  <img src="Pics/Pic8.JPG" witdth="500" align="center">
   
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué
   resultado ha producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar
