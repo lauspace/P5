@@ -25,6 +25,10 @@ Ejercicios.
 Tomando como modelo un instrumento sencillo (puede usar el InstrumentDumb), genere cuatro instrumentos que
 permitan visualizar el funcionamiento de la curva ADSR.
 
+Para este apartado, hemos generado diferentes .wav que siguieran los diferentes instrumentos que se piden. 
+Cuando hemos obtenido el .wav en cada caso caso, y junto con la aplicación de Matlab hemos puesto los 
+gráficos correspondientes con una leyenda dónde se ve los diferentes valores de ADSR.
+
 * Un instrumento con una envolvente ADSR genérica, para el que se aprecie con claridad cada uno de sus
   parámetros: ataque (A), caída (D), mantenimiento (S) y liberación (R).
   
@@ -81,8 +85,15 @@ mediante búsqueda de los valores en una tabla.
   Tremolo:
   <img src="Pics/Pic7.JPG" witdth="500" align="center">
   
+  En esta imagen tenemos el efecto de Tremolo que se ha implementado a la segunda nota, como se puede
+  ver en la imagen hay una clara diferencia en cuanto a la forma, además cuando se escucha por wavesurfer 
+  los cambios también son notables.
+  
   Vibrato:
   <img src="Pics/Pic8.JPG" witdth="500" align="center">
+  
+  Seguidamente, tenemos el efecto de Vibrato quién por comparativa hay menos diferencia pero así mismo
+  también se ve. La variación cuando se escucha por wavesurfer es mas pronunciada.
   
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué
   resultado ha producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar
