@@ -91,6 +91,13 @@ seno::seno(const std::string &param)
     N = 40; //default value
   
   //Create a tbl with one period of a sinusoidal wave
+  tbl.resize(N);
+  float x= 2*M_PI/N;
+  float alpha=0;
+  for(int j=0; j<N; j++){
+  	tbl[j]=sin(alpha);
+	alpha += x;
+	}
   }
 
 
@@ -100,8 +107,7 @@ void seno::command(long cmd, long note, long vel) {
     adsr.start();
     F0=pow(2,((note-69.0)/12.0 ))*440.0/SamplingRate;
     phi = 0;
-    Bheta=2*M_PI*F0;
-	A = vel / 127.;
+    A = vel / 127.;
   }
   else if (cmd == 8) {	//'Key' released: sustain ends, release begins
     adsr.stop();
@@ -122,11 +128,9 @@ const vector<float> & seno::synthesize() {
     return x;
 
   for (unsigned int i=0; i<x.size(); ++i) {
-    x[i] = A * sin(phi);
-   phi += Bheta;
-   while (phi=M_PI){
-       phi -= M_PI;
-   }
+  phi += F0*tbl.size();
+   int z = round(phi);
+    x[i] = A*tbl[z]
    
   }
   adsr(x); //apply envelope to x and update internal status of ADSR
@@ -135,11 +139,16 @@ const vector<float> & seno::synthesize() {
 }
 ```
 
-  5 <img src="Pics/Pic5.PNG" witdth="500" align="center">
+
 
 - Explique qué método se ha seguido para asignar un valor a la señal a partir de los contenidos en la tabla,
   e incluya una gráfica en la que se vean claramente (use pelotitas en lugar de líneas) los valores de la
   tabla y los de la señal generada.
+  
+  En primer lugar, hemos usado la expresión que se nos facilita en el documento de la práctica, y en la misma 
+  linea dividimos por SamplingRate para discretizar la frecuencia.  Para resolver el  problema que se plantea,
+  de momento, no hemos hecho la ampliación sino la versión básica en la que se redondean los valores como se
+  puede ver en el for de la función synthetize.
   
   6 <img src="Pics/Pic6.PNG" witdth="500" align="center">
   
