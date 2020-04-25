@@ -184,6 +184,7 @@ const vector<float> & seno::synthesize() {
   tabla y los de la señal generada.
   
   Hemos calculado el valor f0 y el de la nota (valor discretizado de f0) a tarvés de la fórmula mediante la cual se calcula la nota N:
+  
   5 <img src="Pics/Pic5.PNG">
   
   En la parte correpondiente al synthesize, hemos generado cada valor de x[i] a través de la amplitud multiplicada por el valor de la tabla marcado por el índice. Una vez añadida la ampliación (interpolación de los valores anterior (prev) y posterior (back)), cada valor de x[i] se ha calculado como la amplitud multiplicada por la media de el valor anterior y posterior. Seguidamente se han actualizado dichos valores. Finalmente se ha reseteado el valor de la muestra posterior a cero cuando este valor había superado el incremento (el valor de la nota discretizado por el tamaño de la tabla).
