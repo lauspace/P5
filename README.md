@@ -64,10 +64,39 @@ mediante búsqueda de los valores en una tabla.
 
 - Incluya, a continuación, el código del fichero `seno.cpp` con los métodos de la clase Seno.
 
+seno.h
+```
+#ifndef INSTRUMENT_SENO
+#define INSTRUMENT_SENO
+
+#include <vector>
+#include <string>
+#include "instrument.h"
+#include "envelope_adsr.h"
+
+namespace upc {
+  class InstrumentDumb: public upc::Instrument {
+    EnvelopeADSR adsr;
+    unsigned int index, prev, back;
+	  float f0, theta, nota, step;
+    float A;
+    std::vector<float> tbl;
+  public:
+    seno(const std::string &param = "");
+    void command(long cmd, long note, long velocity=1);
+    const std::vector<float> & synthesize();
+    bool is_active() const {return bActive;}
+  };
+}
+
+#endif
+```
+
+seno.cpp
 ```
 #include <iostream>
 #include <math.h>
-#include "seno.h"
+#include "instrument_seno.h"
 #include "keyvalue.h"
 
 #include <stdlib.h>
@@ -75,39 +104,43 @@ mediante búsqueda de los valores en una tabla.
 using namespace upc;
 using namespace std;
 
-seno::seno(const std::string &param) 
+seno::seno(const std::string &param)
   : adsr(SamplingRate, param) {
   bActive = false;
   x.resize(BSIZE);
 
   /*
     You can use the class keyvalue to parse "param" and configure your instrument.
-    Take a Look at keyvalue.h    
+    Take a Look at keyvalue.h
   */
   KeyValue kv(param);
   int N;
 
   if (!kv.to_int("N",N))
     N = 40; //default value
-  
+
   //Create a tbl with one period of a sinusoidal wave
   tbl.resize(N);
-  float x= 2*M_PI/N;
-  float alpha=0;
-  for(int j=0; j<N; j++){
-  	tbl[j]=sin(alpha);
-	alpha += x;
-	}
+  float phase = 0, step = 2 * M_PI /(float) N;
+  index = 0;
+  for (int i=0; i < N ; ++i) {
+    tbl[i] = sin(phase);
+    phase += step;
   }
+}
 
 
 void seno::command(long cmd, long note, long vel) {
   if (cmd == 9) {		//'Key' pressed: attack begins
     bActive = true;
     adsr.start();
-    F0=pow(2,((note-69.0)/12.0 ))*440.0/SamplingRate;
-    phi = 0;
-    A = vel / 127.;
+    f0 = pow(2, ((note-69.0)/12.0)) * 440.0;
+    nota = f0/SamplingRate;
+    step = 2 * M_PI * nota;
+	  A = vel / 127.;
+    index = 0;
+    prev = 0;
+    back = 0;
   }
   else if (cmd == 8) {	//'Key' released: sustain ends, release begins
     adsr.stop();
@@ -128,28 +161,39 @@ const vector<float> & seno::synthesize() {
     return x;
 
   for (unsigned int i=0; i<x.size(); ++i) {
-  phi += F0*tbl.size();
-   int z = round(phi);
-    x[i] = A*tbl[z]
-   
+    //x[i] = A * tbl[index];
+    x[i] = A * 0.5(tbl[prev] + tbl[back])
+
+    prev = index;
+    back = round(theta + nota*tbl.size());
+    index = round(theta);
+
+    theta = theta + nota*tbl.size();
+
+    while (back >= tbl.size()){
+      back = 0;
+    }
   }
   adsr(x); //apply envelope to x and update internal status of ADSR
 
   return x;
 }
 ```
-
-
-
 - Explique qué método se ha seguido para asignar un valor a la señal a partir de los contenidos en la tabla,
   e incluya una gráfica en la que se vean claramente (use pelotitas en lugar de líneas) los valores de la
   tabla y los de la señal generada.
   
-  En primer lugar, hemos usado la expresión que se nos facilita en el documento de la práctica, y en la misma 
-  linea dividimos por SamplingRate para discretizar la frecuencia.  Para resolver el  problema que se plantea,
-  de momento, no hemos hecho la ampliación sino la versión básica en la que se redondean los valores como se
-  puede ver en el for de la función synthetize.
+  Hemos calculado el valor f0 y el de la nota (valor discretizado de f0) a tarvés de la fórmula mediante la cual se calcula la nota N:
+  5 <img src="Pics/Pic5.PNG">
   
+  En la parte correpondiente al synthesize, hemos generado cada valor de x[i] a través de la amplitud multiplicada por el valor de la tabla marcado por el índice. Una vez añadida la ampliación (interpolación de los valores anterior (prev) y posterior (back)), cada valor de x[i] se ha calculado como la amplitud multiplicada por la media de el valor anterior y posterior. Seguidamente se han actualizado dichos valores. Finalmente se ha reseteado el valor de la muestra posterior a cero cuando este valor había superado el incremento (el valor de la nota discretizado por el tamaño de la tabla).
+  
+  A continuación añadimos una imagen del seno:
+  
+  5.1 <img src="Pics/Pic5.1.PNG" witdth="500" align="center">
+  
+  FALTA
+    
   6 <img src="Pics/Pic6.PNG" witdth="500" align="center">
   
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código
