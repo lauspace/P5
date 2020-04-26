@@ -96,7 +96,7 @@ seno.cpp
 ```
 #include <iostream>
 #include <math.h>
-#include "instrument_seno.h"
+#include "seno.h"
 #include "keyvalue.h"
 
 #include <stdlib.h>
