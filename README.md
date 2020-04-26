@@ -195,7 +195,7 @@ const vector<float> & seno::synthesize() {
   
   Y ahora un imagen con los valores que usamos en la tabla:
   
-  <img src="WhatsApp Image 2020-04-26 at 20.26.55.JPEG" witdth="500" align="center">WhatsApp Image 2020-04-26 at 20.26.55
+  <img src="PIC12.jpeg" witdth="500" align="center">WhatsApp Image 2020-04-26 at 20.26.55
   
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código
   del método `command()`.
