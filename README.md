@@ -260,10 +260,11 @@ deberá venir expresado en semitonos.
   `work/doremi/campana.work`.
   
   La forma de la señal para cada uno de los instrumentos es la siguiente:
-  Clarinete:
+  
+  Clarinete (ADSR_A=0.1; ADSR_D=0; ADSR_S=1; ADSR_R=0.05; I=4; N1 = 3; N2= 2):
   <img src="Pics/Pic10.PNG" witdth="500" align="center">
   
-  Campana:
+  Campana (ADSR_A=0.02; ADSR_D=0.4; ADSR_S=0.0; ADSR_R=0.1; I=10; N1 = 5; N2= 7):
   <img src="Pics/Pic11.PNG" witdth="500" align="center">
   
   * También puede colgar en el directorio work/doremi otras escalas usando sonidos *interesantes*. Por
