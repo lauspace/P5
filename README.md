@@ -234,7 +234,25 @@ deberá venir expresado en semitonos.
 - Use el instrumento para generar un vibrato de *parámetros razonables* e incluya una gráfica en la que se
   vea, claramente, la correspondencia entre los valores `N1`, `N2` e `I` con la señal obtenida.
   
-  9 <img src="Pics/Pic9.PNG" witdth="500" align="center">
+  A continuació mostrem diferents gràfiques obtingudes a partir de a modificació dels diferents paràmetres:
+  
+  I = 2, N1 = 3, N2 = 2:
+  <img src="Pics/FM1.PNG" witdth="500" align="center">
+  
+  I = 2, N1 = 15, N2 = 2:
+  <img src="Pics/FM2.PNG" witdth="500" align="center">
+  
+  I = 2, N1 = 3, N2 = 10:
+  <img src="Pics/FM3.PNG" witdth="500" align="center">
+  
+  I = 10, N1 = 3, N2 = 2:
+  <img src="Pics/FM4.PNG" witdth="500" align="center">
+  
+  I = 10, N1 = 15, N2 = 2:
+  <img src="Pics/FM5.PNG" witdth="500" align="center">
+  
+  I = 20, N1 = 15, N2 = 2:
+  <img src="Pics/FM6.PNG" witdth="500" align="center">
   
 - Use el instrumento para generar un sonido tipo clarinete y otro tipo campana. Tome los parámetros del
   sonido (N1, N2 e I) y de la envolvente ADSR del citado artículo. Con estos sonidos, genere sendas escalas
