@@ -203,18 +203,21 @@ const vector<float> & seno::synthesize() {
   índice de modulación) en la señal generada (se valorará que la explicación esté contenida en las propias
   gráficas, sin necesidad de *literatura*).
   
+  En primera instancia incluimos una imagen de las cuatro primeras notas cuando no hay efectos aplicados.
+  
+  <img src="Pics/Pic7.0.PNG" witdth="500" align="center">
+  
   Tremolo:
   <img src="Pics/Pic7.PNG" witdth="500" align="center">
   
-  En esta imagen tenemos el efecto de Tremolo que se ha implementado a la segunda nota, como se puede
+  En esta imagen tenemos el efecto de Tremolo que se ha implementado a partir de la segunda nota, como se puede
   ver en la imagen hay una clara diferencia en cuanto a la forma, además cuando se escucha por wavesurfer 
   los cambios también son notables.
   
   Vibrato:
   <img src="Pics/Pic8.PNG" witdth="500" align="center">
-  <img src="Pics/Pic8.2.PNG" witdth="500" align="center">
   
-  Seguidamente, tenemos el efecto de Vibrato en el cual tambien podemos observar diferencia entre la primera imagen,donde el efecto no se ha aplicado aun, y la segunda imagen, donde el efecto ya se ha aplicado.
+  Seguidamente, tenemos el efecto de Vibrato en el cual tambien podemos observar diferencia entre las dos primeras notas aunque no es una diferencia tan notable como en el efecto de tremolo.
   
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué
   resultado ha producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar
