@@ -208,14 +208,14 @@ const vector<float> & seno::synthesize() {
   <img src="Pics/Pic7.0.PNG" witdth="500" align="center">
   
   Tremolo:
-  <img src="Pics/Pic7.PNG" witdth="500" align="center">
+  <img src="Pics/Pic7.1.PNG" witdth="500" align="center">
   
   En esta imagen tenemos el efecto de Tremolo que se ha implementado a partir de la segunda nota, como se puede
   ver en la imagen hay una clara diferencia en cuanto a la forma, además cuando se escucha por wavesurfer 
   los cambios también son notables.
   
   Vibrato:
-  <img src="Pics/Pic8.PNG" witdth="500" align="center">
+  <img src="Pics/Pic8.0.PNG" witdth="500" align="center">
   
   Seguidamente, tenemos el efecto de Vibrato en el cual tambien podemos observar diferencia entre las dos primeras notas aunque no es una diferencia tan notable como en el efecto de tremolo.
   
