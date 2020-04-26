@@ -212,9 +212,9 @@ const vector<float> & seno::synthesize() {
   
   Vibrato:
   <img src="Pics/Pic8.JPG" witdth="500" align="center">
+  <img src="Pics/Pic8.2.JPG" witdth="500" align="center">
   
-  Seguidamente, tenemos el efecto de Vibrato quién por comparativa hay menos diferencia pero así mismo
-  también se ve. La variación cuando se escucha por wavesurfer es mas pronunciada.
+  Seguidamente, tenemos el efecto de Vibrato en el cual tambien podemos observar diferencia entre la primera imagen,donde el efecto no se ha aplicado aun, y la segunda imagen, donde el efecto ya se ha aplicado.
   
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué
   resultado ha producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar
