@@ -258,6 +258,14 @@ deberá venir expresado en semitonos.
   sonido (N1, N2 e I) y de la envolvente ADSR del citado artículo. Con estos sonidos, genere sendas escalas
   diatónicas (fichero `doremi.sco`) y ponga el resultado en los ficheros `work/doremi/clarinete.wav` y
   `work/doremi/campana.work`.
+  
+  La forma de la señal para cada uno de los instrumentos es la siguiente:
+  Clarinete:
+  <img src="Pics/Pic10.PNG" witdth="500" align="center">
+  
+  Campana:
+  <img src="Pics/Pic11.PNG" witdth="500" align="center">
+  
   * También puede colgar en el directorio work/doremi otras escalas usando sonidos *interesantes*. Por
     ejemplo, violines, pianos, percusiones, espadas láser de la
 	[Guerra de las Galaxias](https://www.starwars.com/), etc.
