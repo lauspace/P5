@@ -193,10 +193,6 @@ const vector<float> & seno::synthesize() {
   
   <img src="Pics/Pic5.1.PNG" witdth="500" align="center">
   
-  FALTA
-    
-  6 <img src="Pics/Pic6.PNG" witdth="500" align="center">
-  
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código
   del método `command()`.
 
